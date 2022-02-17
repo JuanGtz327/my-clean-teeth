@@ -1,0 +1,974 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+    body{
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    };
+    
+    .Imagen{
+        width:200px;
+        height:200px;
+    }
+</style>
+{{>nav}}
+<body>
+<br><br><br><br>
+    <div class="container">
+        {{> messages }} 
+        {{> error}}    
+        {{> errors}}
+        {{> exitos}}
+        <div class="row">
+            <div class="col-md-7 mx-auto">
+        {{#each dientes}}
+            <div class="card mb-4" style="width:500px;">
+                  <div class="card-body">
+                    <h2 class="card-title text-center">Dientes del paciente: {{Usuario}}</h2>
+                    <p class="card-text text-center">De click en un diente, para comenzar a editar su estado</p>
+                  </div>
+                <img class="card-img-bottom" src="/img/Dentadura2.jpg" style="width:499px; height:600px;" usemap="#Map">
+            </div>
+                
+                <map name="Map" id="Map">
+                <area shape="circle" coords="219,107,30" data-toggle="modal" data-target="#ICSI" />
+                <area shape="circle" coords="278,105,29"  data-toggle="modal" data-target="#ICSD"/>
+                <area shape="poly" coords="306,127,330,135,351,128,348,104,342,90,329,83,317,90,310,100" data-toggle="modal" data-target="#ILSD"/>
+                <area shape="poly" coords="348,136,356,148,367,150,377,140,385,124,387,106,380,96,376,94,364,93,356,105,361,112,359,121,355,122,355,128" data-toggle="modal" data-target="#CSD"/>
+                <area shape="poly" coords="370,152,381,159,398,156,410,150,418,133,418,122,409,109,397,109,392,118" data-toggle="modal" data-target="#PPSD"/>
+                <area shape="poly" coords="384,163,388,171,391,182,406,184,421,179,432,176,438,165,435,154,428,145,421,141,414,151,403,157" data-toggle="modal" data-target="#SPSD"/>
+                <area shape="poly" coords="394,189,399,200,399,214,415,214,431,214,440,208,448,199,446,188,441,179" data-toggle="modal" data-target="#PMSD"/>
+                <area shape="poly" coords="401,218,404,229,403,235,404,244,417,246,425,248,444,247,451,238,452,231,452,218,447,212" data-toggle="modal" data-target="#SMSD"/>
+                <area shape="poly" coords="408,251,406,261,406,272,410,276,419,276,433,279,445,279,455,272,456,260,456,249" data-toggle="modal" data-target="#TMSD"/>
+                <area shape="poly" coords="164,83,152,97,148,118,153,132,164,133,176,130,185,127,186,114,186,99,180,90,175,83" data-toggle="modal" data-target="#ILSI"/>
+                <area shape="poly" coords="126,91,112,112,114,130,122,142,129,147,139,147,146,139,142,126,144,114,142,101,135,93,119,100" data-toggle="modal" data-target="#CSI"/>
+                <area shape="poly" coords="93,108,104,114,109,127,114,141,125,148,126,156,118,157,104,157,90,151,82,140,82,122" data-toggle="modal" data-target="#PPSI"/>
+                <area shape="poly" coords="76,140,68,151,60,163,66,175,77,182,91,185,104,186,108,177,111,165" data-toggle="modal" data-target="#SPSI"/>
+                <area shape="poly" coords="60,175,55,184,51,198,55,206,61,212,73,214,81,215,93,216,100,213,102,202,104,191" data-toggle="modal" data-target="#PMSI"/>
+                <area shape="poly" coords="50,211,47,224,44,238,52,247,66,247,80,248,92,246,96,238,95,229,96,220" data-toggle="modal" data-target="#SMSI"/>
+                <area shape="poly" coords="44,246,56,252,72,252,86,251,92,248,92,261,93,271,90,279,78,279,70,279,60,281,52,280,44,277"  data-toggle="modal" data-target="#TMSI"/>
+                    
+                    
+                <area shape="poly" coords="60,322,75,317,88,314,101,317,105,323,108,334,102,344,92,349,76,350,62,348,57,338" data-toggle="modal" data-target="#TMII"/>
+                <area shape="poly" coords="413,314,399,318,401,327,397,339,406,341,419,345,436,343,442,342,447,332,443,322,428,315" data-toggle="modal" data-target="#TMID"/>
+                <area shape="poly" coords="65,350,64,363,64,372,67,381,76,382,90,380,107,376,116,373,117,363,115,352,112,348" data-toggle="modal" data-target="#SMII"/>
+                <area shape="poly" coords="393,342,406,347,419,348,427,350,437,350,443,357,441,369,437,376,430,375,418,374,409,374,399,374,389,374,385,370,385,355" data-toggle="modal" data-target="#SMID"/>
+                <area shape="poly" coords="70,387,73,401,76,414,86,419,99,414,113,412,126,405,129,398,125,387,118,381" data-toggle="modal" data-target="#PMII"/>
+                <area shape="poly" coords="382,377,380,388,375,400,383,407,400,412,418,412,428,412,432,405,432,396,435,389,433,383" data-toggle="modal" data-target="#PMID"/>
+                <area shape="poly" coords="83,424,83,438,91,448,99,453,109,449,119,445,138,439,143,433,143,423,136,420,135,412,131,407" data-toggle="modal" data-target="#SPII"/>
+                <area shape="poly" coords="369,403,378,409,391,414,401,416,416,416,423,423,419,435,409,442,406,447,394,446,380,441,364,437,359,423" data-toggle="modal" data-target="#SPID"/>
+                <area shape="poly" coords="102,458,113,454,117,448,130,447,141,442,150,439,154,446,155,455,158,461,155,472,142,477,125,479,110,479,102,471" data-toggle="modal" data-target="#PPII"/>
+                <area shape="poly" coords="358,436,347,446,344,462,352,470,365,476,377,478,396,474,398,464,400,451" data-toggle="modal" data-target="#PPID"/>
+                <area shape="circle" coords="236,508,17" data-toggle="modal" data-target="#ICII"/>
+                <area shape="circle" coords="272,508,17" data-toggle="modal" data-target="#ICID"/>
+                <area shape="circle" coords="307,502,17" data-toggle="modal" data-target="#ILID"/>
+                <area shape="circle" coords="200,503,18" data-toggle="modal" data-target="#ILII"/>
+                <area shape="poly" coords="330,461,320,470,322,489,329,499,338,505,351,509,362,502,363,490,356,473" data-toggle="modal" data-target="#CID"/>
+                <area shape="poly" coords="183,462,189,481,183,489,167,501,155,508,144,503,145,486,150,473" data-toggle="modal" data-target="#CII"/>
+                </map>
+                
+                <div class="modal" id="ICSD">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Incisivo Central Superior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/ICSD/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="ICSD">{{ICSD}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="ILSD">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Incisivo Lateral Superior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/ILSD/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="ILSD">{{ILSD}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="CSD">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Comillo Superior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/CSD/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="CSD">{{CSD}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="PPSD">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Primer Premolar Superior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/PPSD/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="PPSD">{{PPSD}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="SPSD">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Seguno Premolar Superior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/SPSD/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="SPSD">{{SPSD}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="PMSD">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Primer Molar Superior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/PMSD/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="PMSD">{{PMSD}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="SMSD">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Segundo Molar Superior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/SMSD/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="SMSD">{{SMSD}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="TMSD">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Tercer Molar Superior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/TMSD/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="TMSD">{{TMSD}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="TMID">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Tercer Molar Inferior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/TMID/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="TMID">{{TMID}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="SMID">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Segundo Molar Inferior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/SMID/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="SMID">{{SMID}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="PMID">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Primer Molar Inferior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/PMID/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="PMID">{{PMID}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="SPID">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Segundo Premolar Inferior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/SPID/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="SPID">{{SPID}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="PPID">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Primer Premolar Inferior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/PPID/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="PPID">{{PPID}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="CID">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Colmillo Inferior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/CID/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="CID">{{CID}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="ILID">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Incisivo Lateral Inferior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/ILID/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="ILID">{{ILID}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="ICID">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Incisivo Central Inferior Derecho</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/ICID/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="ICID">{{ICID}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="ICSI">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Incisivo Central Superior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/ICSI/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="ICSI">{{ICSI}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="ILSI">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Incisivo Lateral Superior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/ILSI/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="ILSI">{{ILSI}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="CSI">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Colmillo Superior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/CSI/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="CSI">{{CSI}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="PPSI">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Primer Premolar Superior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/PPSI/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="PPSI">{{PPSI}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="SPSI">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Segundo Premolar Superior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/SPSI/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="SPSI">{{SPSI}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="PMSI">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Primer Molar Superior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/PMSI/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="PMSI">{{PMSI}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="SMSI">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Segundo Molar Superior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/SMSI/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="SMSI">{{SMSI}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="TMSI">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Tercer Moral Superior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/TMSI/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="TMSI">{{TMSI}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="TMII">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Tercer Moral Inferior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/TMII/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="TMII">{{TMII}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="SMII">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Segundo Molar Inferior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/SMII/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="SMII">{{SMII}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="PMII">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Primer Molar Inferior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/PMII/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="PMII">{{PMII}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="SPII">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Segundo Premolar Inferior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/SPII/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="SPII">{{SPII}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="PPII">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Primer Premolar Inferior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/PPII/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="PPII">{{PPII}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="CII">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Colmillo Inferior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/CII/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="CII">{{CII}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="ILII">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Incisivo Lateral Inferior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/ILII/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="ILII">{{ILII}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="modal" id="ICII">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Diente: Incisivo Central Inferior Izquierdo</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <div class="modal-body text-center">
+                      <form action="/Doctor/Pacientes/ICII/{{IDUSUARIO}}/{{_id}}?_method=PUT" method="POST" onpaste="return false" ondrag="return false" ondrop="return false">
+                          <input type="hidden" name="_method" value="PUT"/>
+                          <div class="form-group">
+                            <label for="exampleSelect1">Hola, en este apartado usted puede editar el estado del diente</label>
+                              <textarea class="form-control" name="ICII">{{ICII}}</textarea>
+                          </div>
+                          <button class="btn btn-outline-info btn-block" type="submit">
+                            Editar Estado del Diente
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        {{/each}}
+                
+            </div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+</body>

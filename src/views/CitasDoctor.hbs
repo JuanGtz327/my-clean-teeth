@@ -1,0 +1,60 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+    body{
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    }   
+</style>
+{{>nav}}
+<body>
+  <br><br><br><br>
+    <div class="container">
+{{> messages }} 
+{{> error}}    
+{{> errors}}
+        <div class="row">
+
+  {{#each Citas}}
+  <div class="col-md-3">
+  <div class="card text-center" style="width:250px height:200"  >
+    <div class="card-body">
+      <h4 class="card-title">{{Nombre}}&nbsp;{{Apellido}}</h4>
+      <h6 class="card-title">{{Hora}}&nbsp;{{Dia}}</h6>
+      <p class="card-text">{{Descripcion}}</p>
+         {{#if Confirmacion}}
+            <h4 class="card-title">CITA CONFIRMADA</h4>
+         {{else}}
+        {{#if Rechazo}}
+            <h4 class="card-title">CITA RECHAZADA</h4>
+         {{else}}
+            <a href="/Doctor/Citas/ConfirmarC/{{_id}}" class="btn btn-success btn-block">Confirmar Cita</a><br>
+            <a href="/Doctor/Citas/RechazarC/{{_id}}" class="btn btn-dark btn-block">Rechazar Cita</a><br>
+         {{/if}}
+         {{/if}}
+
+
+            
+       <form action="/Doctor/Citas/EliminarC/{{_id}}?_method=DELETE" method="POST">
+           <input type="hidden" name="_method" value="DELETE">
+           <button type="submit" class="btn btn-danger btn-block">Eliminar Cita</button>
+       </form>     
+    </div>
+  </div>
+  </div>
+  {{else}}
+  <div class="card mx-auto">
+    <div class="card-body text-center">
+      <h1>Hola {{user.Usuario}}</h1>
+      <p clsss="lead">Tus pacientes aun no han agendado citas</p>
+    </div>
+  </div>
+  {{/each}}
+</div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+</body>

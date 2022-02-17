@@ -1,0 +1,69 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+    body{
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    }   
+</style>
+{{>nav}}
+<body>
+  <br><br><br><br>
+    <div class="container">
+        {{> messages }} 
+        {{> error}}    
+        {{> errors}}
+        {{> errors2}}
+        {{#each Doctor}}
+        <div class="col-md-7 mx-auto">
+            <div class="card mb-4">
+                {{#if Sexo}}
+                    <img class="card-img-top" src="/img/img_avatar5.png" alt="Card image cap">
+                {{else}}
+                    <img class="card-img-top" src="/img/img_avatar1.png" alt="Card image cap">
+                {{/if}}
+              <div class="card-body">
+                {{#if Sexo}}
+                    <h3 class="card-title text-center">Doctora {{Nombre}} {{Apellido}}</h3>
+                {{else}}
+                    <h3 class="card-title text-center">Doctor {{Nombre}} {{Apellido}}</h3>
+                {{/if}}
+                <form action="/Doctor/EditarMiPerfil/{{_id}}?_method=PUT" method="POST" class="form-group" onpaste="return false" ondrag="return false" ondrop="return false">
+                    <input type="hidden" name="_method" value="PUT"/>
+                <div class="form-group">
+                <p class="card-text text-">Nombre: <input name="Nombre" type="text" value="{{Nombre}}" class="form-control" placeholder="Nombre"  required maxlength="20" autocomplete="off" pattern="[A-Za-z ]+"></p>
+                </div>
+                <div class="form-group">
+                <p class="card-text">Apellido: <input name="Apellido" type="text" value="{{Apellido}}" class="form-control" placeholder="Apellido"  required maxlength="20" autocomplete="off" pattern="[A-Za-z ]+"></p>
+                </div>
+                <div class="form-group">
+                <p class="card-text">Correo: <input name="Correo" type="email" value="{{Correo}}" class="form-control" placeholder="Correo"  required maxlength="50" autocomplete="off"></p>
+                </div>
+                <div class="form-group">
+                <p class="card-text">Usuario: <input name="Usuario" type="text" value="{{Usuario}}" class="form-control" placeholder="Usuario"  required maxlength="20" autocomplete="off" pattern="[A-Za-z ]+"></p>
+                </div>
+                <div class="form-group">
+                <p class="card-text">Cedula: <input name="Cedula" type="text" value="{{Cedula}}" class="form-control" readonly placeholder="Cedula"  required maxlength="20" autocomplete="off" pattern="[A-Za-z ]+"></p>
+                </div>
+                <div class="form-group">
+                <p class="card-text">Telefono: <input name="Telefono" type="text" value="{{Telefono}}" class="form-control" placeholder="Telefono"  maxlength="10" autocomplete="off" pattern="[0-9].{8,}" title="El numero debe de ser de 8 digitos minino, 10 maximo"></p>
+                </div>
+                <div class="form-group">
+                <p class="card-text">Consultorio: <textarea class="form-control" name="Consultorio" maxlength="200" minlength="1" placeholder="Consultorio">{{Consultorio}}</textarea></p>    
+                </div>
+                <div class="form-group">
+                <button class="btn btn-success btn-block" type="submit">
+                    Editar Perfil
+                </button>   
+                </div>
+                </form>
+              </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+</body>

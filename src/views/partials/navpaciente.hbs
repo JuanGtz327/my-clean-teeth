@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/"><strong><h3>Clean Teth</h3></strong></a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/Paciente">Inicio</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/Paciente/Dientes/{{user.id}}">Mis Dientes</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Notas 
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/Paciente/Notas">Mis Notas</a>
+              <a class="dropdown-item" href="/Paciente/NotasDoctor">Notas Doctor</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/Paciente/Notas/NuevaN">Nueva Nota</a>
+            </div>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Citas 
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+              <a class="dropdown-item" href="/Paciente/Citas">Mis Citas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/Paciente/Citas/NuevaC">Nueva Cita</a>
+            </div>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/Paciente/MiDoctor/{{user.IDDOCTOR}}">Mi Doctor</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/logoutP">Cerrar Sesion</a>
+            </li>
+          </ul>
+        </div>
+    </div>   
+</nav>

@@ -1,0 +1,323 @@
+
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+<!-- Navigation ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand page-scroll" href="#page-top">Clean Teeth</a> </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        {{#if user}}
+            {{#if user.Correo}}
+                <ul class="nav navbar-nav navbar-right">
+        <li><a href="#page-top" class="page-scroll">Inicio</a></li>
+        <li><a href="#features" class="page-scroll">Caracteristicas</a></li>
+        <li><a href="#about" class="page-scroll">YIDMO</a></li>
+        <li><a href="#services" class="page-scroll">Servicios</a></li>
+        <li><a href="#team" class="page-scroll">Equipo</a></li>
+        <li><a href="#contact" class="page-scroll">Contacto</a></li>
+        <li><a href="/logout" class="page-scroll">Cerrar Sesion</a></li>
+      </ul>
+            {{else}}
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#page-top" class="page-scroll">Inicio</a></li>
+        <li><a href="#features" class="page-scroll">Caracteristicas</a></li>
+        <li><a href="#about" class="page-scroll">YIDMO</a></li>
+        <li><a href="#services" class="page-scroll">Servicios</a></li>
+        <li><a href="#team" class="page-scroll">Equipo</a></li>
+        <li><a href="#contact" class="page-scroll">Contacto</a></li>
+        <li><a href="/logoutp" class="page-scroll">Cerrar Sesion</a></li>
+      </ul>
+            {{/if}}
+          
+        {{else}}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#page-top" class="page-scroll">Inicio</a></li>
+        <li><a href="#features" class="page-scroll">Caracteristicas</a></li>
+        <li><a href="#about" class="page-scroll">YIDMO</a></li>
+        <li><a href="#services" class="page-scroll">Servicios</a></li>
+        <li><a href="#team" class="page-scroll">Equipo</a></li>
+        <li><a href="#contact" class="page-scroll">Contacto</a></li>
+      </ul>
+        {{/if}}
+    </div>
+  </div>
+</nav>
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 intro-text">
+            <h1>Bienvenido<span></span></h1>
+            <p>Estamos a tu servicio</p>
+              {{#if user}}
+              {{#if user.Correo}}
+              <div class="btn-group">
+              <a type="button" class="btn btn-custom btn-lg page-scroll" href="/Doctor">Panel de Doctor</a>
+              </div>
+              {{else}}
+              <div class="btn-group">
+              <a type="button" class="btn btn-custom btn-lg page-scroll" href="/Paciente">Panel de Paciente</a>
+              </div>
+              {{/if}}
+              {{else}}
+              <div class="btn-group">
+              <button type="button" class="btn btn-custom btn-lg page-scroll" data-toggle="modal" data-target="#myModal">Registarme</button>
+              <button type="button" class="btn btn-custom btn-lg page-scroll" data-toggle="modal" data-target="#myModal2">Iniciar Sesion</button>
+              </div>
+              {{/if}} 
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">BIENVENIDO</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <h3>Hola Doctor, dentro de Clean Teth podra registrarse para empezar a
+                    brindar el mejor servicio a sus pacientes, una vez registrado podra
+                    dar de alta a sus pacientes.</h3><br><br>
+                    <a type="button" href="/NewD" class="btn btn-danger btn-block">Registrarme</a>  
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal" id="myModal2">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">BIENVENIDO</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                      <h3>Si eres doctor incia sesion aqui.</h3><br><br>
+                    <a type="button" href="/IS" class="btn btn-primary btn-block">Doctor</a>
+                    <br><br><br>
+                    <h3>Eres un paciente entonces inicia sesion aqui, recuerda que es necesario
+                        que tu doctor te registre en el sistema.</h3><br><br>
+                    <a type="button" href="/ISP" class="btn btn-primary btn-block">Paciente</a>  
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Features Section -->
+<div id="features" class="text-center" >
+  <div class="container" align="center">
+    <div class="col-md-10 col-md-offset-1 section-title">
+      <h2>Características</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-4"> <i class="fa fa-comments-o"></i>
+        <h3>Comunicación</h3>
+        <p>Tanto tú como tu doctor estan siempre en contacto</p>
+      </div>
+
+      <div class="col-xs-6 col-md-4"> <i class="fa fa-group"></i>
+        <h3>Experiencia Completa</h3>
+        <p>Garantizamos una experiencia gratificante y eficiente</p>
+      </div>
+      <div class="col-xs-12 col-md-4"> <i class="fa fa-magic"></i>
+        <h3>Página Intuitiva</h3>
+        <p>Nuestra página es sencilla de utilizar.
+        <br>
+      ¡No lo crees , Pruebala!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/about.jpg" class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>¿Quiénes Somos?</h2>
+          <p>Yidmo es una empresa cuyo fin es proporcinar un servicio de odontología de la mayor calidad, siguiendo estándares globales de salud, y garantizando a cada usuario una experiencia única</p>
+          <h3>Somos tu mejor opcion</h3>
+          <div class="list-style">
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <ul>
+                <li>Dentistas especializados</li>
+                <li>Tratamientos efectivos</li>
+                <li>Una nueva forma de ir al doctor</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Services Section -->
+<div id="services" class="text-center">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nuestros Servicios</h2>
+      <p>Clean Teeth Te ofrece lo siguiente:</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6"> <i class="fa fa-wordpress"></i>
+        <div class="service-desc">
+          <h3>Comunicacion</h3>
+          <p>Clean Teeth te da la posibilidad de dejar notas a tu doctor<br>
+          ¡Mantente en Contacto!</p>
+        </div>
+      </div>
+
+      <div class="col-md-6"> <i class="fa fa-cloud-download"></i>
+        <div class="service-desc">
+          <h3>Agenda Citas</h3>
+          <p>Con Clean Teeth puedes agendar una cita cuando quieras <br>
+          Tu doctor la confirmara, espera</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"> <i class="fa fa-language"></i>
+        <div class="service-desc">
+          <h3>Caso Clínico Online</h3>
+          <p>En Clean Teeth puedes observar el estado de salud de tus dientes en tiempo real!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team Section -->
+<div id="team" class="text-center">
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2 section-title">
+      <h2>Conócenos</h2>
+    </div>
+    <div id="row">
+      <div class="col-md-4 col-sm-6 team">
+        <div class="thumbnail"> <img src="img/team/01.jpg" alt="..." class="team-img">
+          <div class="caption">
+            <h4>Marco Miranda</h4>
+            <p>Ingeniero de pruebas</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 team">
+        <div class="thumbnail"> <img src="img/team/02.jpg" alt="..." class="team-img">
+          <div class="caption">
+            <h4>Juan Sarmiento</h4>
+            <p>Programador</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 team">
+        <div class="thumbnail"> <img src="img/team/03.jpg" alt="..." class="team-img">
+          <div class="caption">
+            <h4>Eliseo Vázquez</h4>
+            <p>Ingeniero de Software</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact Section -->
+<div id="contact">
+  <div class="container">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="section-title">
+          <h2>Contáctanos</h2>
+          <p>Por favor, llena el siguiente formulario, pronto estaremos en contacto contigo</p>
+        </div>
+        <form method="POST" action="/">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+            <p class="help-block text-danger"></p>
+          </div>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-custom btn-lg">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-offset-1 contact-info">
+      <div class="contact-item">
+        <h3>Informacion de contacto</h3>
+        <p><span><i class="fa fa-map-marker"></i>Direccion</span>Mar Mediterráneo # 227 Col. Popotla, Del. Miguel Hidalgo<br> C.P. 11400 Ciudad de México</p>
+      </div>
+      <div class="contact-item">
+        <p><span><i class="fa fa-phone"></i> Teléfono</span>55-22-25-37-93</p>
+      </div>
+      <div class="contact-item">
+        <p><span><i class="fa fa-envelope-o"></i>Email</span> jucasaguipn@hotmail.com</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="social">
+          <ul>
+            <li><a href="/"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="/"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="/"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="/"><i class="fa fa-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer Section -->
+<div id="footer">
+  <div class="container text-center">
+    <p>&copy; 2018 YIDMO. Design by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+  </div>
+</div>
